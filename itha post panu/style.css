@@ -1,0 +1,472 @@
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #3134c7;
+      background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.1) 5%, transparent 0),
+                        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.1) 10%, transparent 0);
+      background-size: 30px 30px;
+      background-repeat: repeat;
+      color: white;
+    }
+   
+    .search-container {
+      width: 30%;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      font-size: 16px;
+      position:-ms-page;
+    }
+#movieInfoContainer {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+    .search-container button {
+      background-color: white;
+      color: #3134c7;
+      border: none;
+      margin-left: 2px;
+      margin-right: 30px;
+      border-radius: 60%;
+      padding: 6px 10px;
+      left: 40%;
+      
+    }
+
+    .login-btn {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      font-size: 16px;
+      padding: 6px 16px;
+      border-radius: 25px;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      position: inherit;
+    }
+
+    .login-btn .login-text {
+      display: none;
+      margin-left: 2px;
+      
+
+    }
+
+    .login-btn:hover .login-text {
+      display: inline;
+    }
+
+    .login-btn:hover .bi-person {
+      display: none;
+    }
+
+    .login-btn:hover {
+      background-color: white;
+      color: #3134c7;
+    }
+
+    #sidebar {
+      position:fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #3134c7;
+      color: white;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    #sidebar.active {
+      left: 0;
+    }
+
+    #sidebar a {
+      display: block;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    #sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #sidebarToggle {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 26px;
+      color: #3134c7;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      padding: 6px 10px;
+      z-index: 1100;
+      cursor: pointer;
+    }
+
+    #closeSidebar {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 22px;
+      background: none;
+      border: none;
+      color: white;
+    }
+
+    .scrolling-wrapper {
+      overflow-x: auto;
+      white-space: nowrap;
+      max-width: 90%;
+    }
+
+    .movie-card {
+      display: inline-block;
+      width: 160px;
+      margin-right: 20px;
+      vertical-align: top;
+    }
+
+    .movie-card img {
+      width: 100%;
+      border-radius: 6px;
+      
+    }
+    .movie-card:hover {
+     transform: scale(1.05);
+    }
+    .movie-info {
+      padding-top: 5px;
+    }
+
+    .movie-type {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .movie-title {
+      font-weight: bold;
+    }
+
+    .movie-actor {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title h5 {
+      margin-bottom: 0;
+    }
+
+    .section {
+      margin: 30px;
+    }
+  .scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+.scrolling-wrapper {
+  scroll-behavior: smooth;
+}
+.scrolling-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 90%;
+  scroll-behavior: smooth;
+
+  /* Hide scrollbar (cross-browser) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+.scrolling-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+}
+.scroll-btn.left {
+  left: 0;
+}
+.scroll-btn.right {
+  right: 0;
+}
+
+/* Toggle Button Style */
+
+/* Toggle Button Style */
+.dark-toggle {
+  background-color: #ffffff;
+  color: #3134c7;
+  border: none;
+  padding: 9px 15px;
+  font-size: 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 17px;
+  right: 400px;
+  z-index: 999;
+}
+
+.dark-toggle:hover {
+  background-color: #3134c7;
+  color: #fff;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+body.dark-mode .movie-card,
+body.dark-mode .section {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .movie-type {
+  color: #aaaaaa;
+}
+
+/*style for logout*/
+
+
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+/* ===== Responsive Mobile Styles ===== */
+@media (max-width: 768px) {
+
+  .search-container {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;   /* keep it row */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;              /* spacing between input and button */
+  }
+
+  .search-container input {
+    width: 100%;
+    flex: 1;
+    margin-bottom: 0; /* remove this to keep it aligned horizontally */
+  }
+
+  .search-container button {
+    width: auto;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .dark-toggle {
+    right: 20px;
+    top: 25px;
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+
+  #sidebar {
+    width: 200px;
+    padding-top: 50px;
+  }
+
+  .movie-card {
+    width: 140px;
+    margin-right: 10px;
+  }
+
+  .section {
+    margin: 15px;
+  }
+
+  .section-title h5 {
+    font-size: 15px;
+  }
+
+  .scroll-btn {
+    font-size: 18px;
+    padding: 6px;
+  }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  .movie-card {
+    padding: 20px 15px;
+  }
+
+  .movie-details h2 {
+    font-size: 1.5rem;
+  }
+
+  .movie-details p {
+    font-size: 0.95rem;
+  }
+
+  .rating-badge {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  iframe {
+    height: 220px !important;
+  }
+
+  .back-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .col-md-4,
+  .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .movie-poster {
+    max-width: 80%;
+    margin-bottom: 15px;
+  }
+
+  #similarMovies h4 {
+    text-align: center;
+  }
+
+  #similarMovies .col-md-2 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+}
+.hero-heading {
+  padding: 20px 30px;
+  text-align: left;
+}
+
+.hero-heading h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-heading h6 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+  .hero-heading {
+    padding: 15px 20px;
+  }
+
+  .hero-heading h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-heading h6 {
+    font-size: 0.9rem;
+  }
+}
